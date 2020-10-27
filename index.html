@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Realtime communication with WebRTC</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body>
+
+    <h1>Realtime communication with WebRTC</h1>
+
+    <h2>
+      <span>Room URL: </span><span id="url">...</span>
+    </h2>
+
+    <div id="localArea">
+        <h3>Local Video</h3>
+
+        <div id="localVideoArea">
+            <video id="localVideo" autoplay playsinline></video>
+            <div>
+                <button id="startButton">Start</button>
+                <button id="callButton">Call</button>
+                <button id="hangupButton">Hang Up</button>
+            </div>
+        </div>
+
+        <div id="chatArea">
+            <div id="chatContent">
+                <ul id="chatList">
+                    <!--<li><span>Name:</span>gaagaggagaga</li>-->
+                </ul>
+            </div>
+            <div>
+                <label>
+                    Name:
+                </label>
+                <input id="nickName" type="text" />
+            </div>
+
+            <textarea id="dataChannelSend"></textarea>
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <h3>Remote Video</h3>
+    <div id="remoteVideos">
+        <!-- Show Remote Videos -->
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>-
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="/js/main.js" type="module" ></script>
+
+</body>
+
+</html>
