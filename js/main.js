@@ -185,6 +185,7 @@ function sendAction() {
   }
   webrtc.sendToAllDataChannels(JSON.stringify(msg))
   addToChatBox(msg)
+  dataChannelSend.value = ''
 }
 
 // Define action buttons.
