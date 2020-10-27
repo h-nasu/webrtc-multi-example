@@ -22,7 +22,6 @@ io.sockets.on('connection', function(socket) {
 
   socket.on('message', function(message, room, toId, senderId) {
     log('Client said: ', message, room, toId, senderId);
-    //socket.to(room).emit('message', socketId, message, senderId);
     io.to(toId).emit('message', message, room, senderId);
   });
 
@@ -30,20 +29,6 @@ io.sockets.on('connection', function(socket) {
     log('Client said: Candidate ', message, room, senderId);
     socket.to(room).emit('receive candidate', message, senderId);
   });
-
-//c.socket.to(socketId).emit('send offer', description, room, myId);
-/*
-  socket.on('send offer', function(message, room, toId, senderId) {
-    log('Client said: Offer ', message, room, toId, senderId);
-    io.to(toId).emit('receive offer', message, room, senderId);
-  });
-
-  socket.on('send answer', function(message, room, toId, senderId) {
-    log('Client said: Answer', message, room, toId, senderId);
-    io.to(toId).emit('receive answer', message, room, senderId);
-  });
-*/
-
 
   socket.on('create or join', function(room) {
     log('Received request to create or join room ' + room);
